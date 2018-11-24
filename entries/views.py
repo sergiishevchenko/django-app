@@ -3,7 +3,7 @@ from .models import Entry
 
 
 def index(request):
-    entries = Entry.objects.all()
+    entries = Entry.objects.order_by('-date_posted')
 
     context = {'entries': entries}
 
