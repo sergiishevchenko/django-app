@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from .models import Entry
 
 
 def index(request):
@@ -6,4 +7,8 @@ def index(request):
 
 
 def add(request):
-    return render(request, 'entries/add.html')
+    entries = Entry.objects.all()
+
+    context = {'entries': entries}
+
+    return render(request, 'entries/add.html', context)
